@@ -58,4 +58,16 @@ describe('Module', function () {
 
     expect(ed.edit(m).toISOString()).to.equal('2017-08-29T23:59:59.999Z')
   })
+
+  it('should floor to second half of minute (explicit)', function () {
+    const ed = new utils.MomentEditor('dn_30_m')
+
+    expect(ed.edit(m).toISOString()).to.equal('2017-08-30T17:30:00.000Z')
+  })
+
+  it('should floor to third quarter of day (explicit)', function () {
+    const ed = new utils.MomentEditor('dn_6_H')
+
+    expect(ed.edit(m).toISOString()).to.equal('2017-08-30T12:00:00.000Z')
+  })
 })

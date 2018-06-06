@@ -19,6 +19,15 @@ var editors = {
 
     return ctx.m.add(n, unit);
   },
+  dn: function dn(ctx) {
+    var num = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
+    var unit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'm';
+
+    var n = num | 0;
+    var v = ctx.m.get(unit);
+
+    return ctx.m.startOf(unit).set(unit, Math.floor(v / n) * n);
+  },
   eo: function eo(ctx) {
     var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'd';
 

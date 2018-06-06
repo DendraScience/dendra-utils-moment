@@ -4,6 +4,12 @@ const editors = {
 
     return ctx.m.add(n, unit)
   },
+  dn (ctx, num = 30, unit = 'm') {
+    const n = num | 0
+    const v = ctx.m.get(unit)
+
+    return ctx.m.startOf(unit).set(unit, Math.floor(v / n) * n)
+  },
   eo (ctx, unit = 'd') {
     return ctx.m.endOf(unit)
   },
