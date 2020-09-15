@@ -1,22 +1,22 @@
 const editors = {
-  ad (ctx, num = 1, unit = 'd') {
+  ad(ctx, num = 1, unit = 'd') {
     const n = num | 0
 
     return ctx.m.add(n, unit)
   },
-  dn (ctx, num = 30, unit = 'm') {
+  dn(ctx, num = 30, unit = 'm') {
     const n = num | 0
     const v = ctx.m.get(unit)
 
     return ctx.m.startOf(unit).set(unit, Math.floor(v / n) * n)
   },
-  eo (ctx, unit = 'd') {
+  eo(ctx, unit = 'd') {
     return ctx.m.endOf(unit)
   },
-  so (ctx, unit = 'd') {
+  so(ctx, unit = 'd') {
     return ctx.m.startOf(unit)
   },
-  su (ctx, num = 1, unit = 'd') {
+  su(ctx, num = 1, unit = 'd') {
     const n = num | 0
 
     return ctx.m.subtract(n, unit)
@@ -27,11 +27,11 @@ const editors = {
  * Editor class to manipulate a moment given a format string.
  */
 export default class MomentEditor {
-  constructor (format) {
+  constructor(format) {
     this.format = format
 
-    const ctx = this.ctx = {} // Editor context
-    const fns = this.fns = [] // Editor functions bound to the context and format args
+    const ctx = (this.ctx = {}) // Editor context
+    const fns = (this.fns = []) // Editor functions bound to the context and format args
 
     // Pre-process the format string
     format.split(',').forEach(spec => {
@@ -47,7 +47,7 @@ export default class MomentEditor {
   /**
    * Apply edits to a moment.
    */
-  edit (m) {
+  edit(m) {
     this.ctx.m = m.clone()
     this.fns.forEach(fn => {
       this.ctx.m = fn()

@@ -16,21 +16,31 @@ describe('Module', function () {
   })
 
   it('should manipulate to start of next day', function () {
-    const mm = utils.manipulateMoment(m.clone(), [{
-      m: 'startOf', p: 'd'
-    }, {
-      m: 'add', p: [1, 'd']
-    }])
+    const mm = utils.manipulateMoment(m.clone(), [
+      {
+        m: 'startOf',
+        p: 'd'
+      },
+      {
+        m: 'add',
+        p: [1, 'd']
+      }
+    ])
 
     expect(mm.toISOString()).to.equal('2017-08-31T00:00:00.000Z')
   })
 
   it('should manipulate to end of previous day', function () {
-    const mm = utils.manipulateMoment(m.clone(), [{
-      m: 'subtract', p: [1, 'd']
-    }, {
-      m: 'endOf', p: 'd'
-    }])
+    const mm = utils.manipulateMoment(m.clone(), [
+      {
+        m: 'subtract',
+        p: [1, 'd']
+      },
+      {
+        m: 'endOf',
+        p: 'd'
+      }
+    ])
 
     expect(mm.toISOString()).to.equal('2017-08-29T23:59:59.999Z')
   })

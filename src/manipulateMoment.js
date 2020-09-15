@@ -3,7 +3,7 @@ const OP_METHOD_REGEX = /^(add|endOf|set|startOf|subtract)$/
 /**
  * Manipulate a moment given an array of operations.
  */
-export default function manipulateMoment (value, ops, errorCb) {
+export default function manipulateMoment(value, ops, errorCb) {
   ops.forEach(op => {
     try {
       if (!OP_METHOD_REGEX.test(op.m)) {

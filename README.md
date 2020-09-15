@@ -2,10 +2,9 @@
 
 Defines utility classes and functions for manipulating Moment instances.
 
-
 ## Instructions
 
-1. Be sure you have Node version 6.11.x. If you’re using nvm, you may need to `nvm use 6.11`.
+1. Be sure you have Node version 12.14.x. If you’re using nvm, you may need to `nvm use 12.14`.
 
 2. Clone this repo.
 
